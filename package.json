@@ -8,7 +8,8 @@
   "scripts": {
     "build": "rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "dependencies": {
     "react": "^18.1.0",
@@ -31,9 +32,15 @@
     "@storybook/manager-webpack4": "^6.5.4",
     "@storybook/react": "^6.5.4",
     "@storybook/testing-library": "^0.0.11",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
+    "@types/jest": "^27.5.1",
     "@types/react": "^18.0.9",
     "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.5",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
     "rollup": "^2.74.1",
     "rollup-plugin-dts": "^4.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",

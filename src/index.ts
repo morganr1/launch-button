@@ -1,4 +1,3 @@
-import { LaunchButton } from "./components";
+import { LaunchButton } from './components';
 
-export { LaunchButton }
-
+export { LaunchButton };
