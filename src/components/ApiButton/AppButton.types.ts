@@ -1,6 +1,29 @@
-import { FC } from 'react';
+/**
+ * Types
+ */
 
-interface ApiButtonProps {
+export type HandleHover = (show: boolean) => void;
+
+/**
+ * Interfaces
+ */
+
+export interface ControlledRequestParams {
+    controllerRef: {
+        current: AbortController | null | undefined;
+    };
+    url: string;
+    setRequestStatus: Function;
+    callback: Function;
+    requestTimeout: number | undefined;
+}
+
+export interface RequestStatus {
+    fetching: boolean;
+    error: boolean;
+}
+
+export interface ApiButtonProps {
     /**
      * Text to display for each possible status
      */
@@ -50,6 +73,21 @@ interface ApiButtonProps {
     callback: Function;
 }
 
-declare const ApiButton: FC<ApiButtonProps>;
+export interface ButtonProps {
+    id: string;
+    type: string;
+    disabled?: boolean;
+    status: 'error' | 'fetching' | 'default';
+    ariaLabel?: string;
+    onClick: Function;
+}
 
-export { ApiButton };
+export interface ButtonWrapperProps {
+    onMouseOver: Function;
+    onMouseOut: Function;
+}
+
+export interface StatusProps {
+    status: string;
+    disabled?: boolean;
+}

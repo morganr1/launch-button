@@ -1,5 +1,8 @@
-/node_modules
-/build
-/coverage
+node_modules
+dist
+storybook-static
+coverage
 .env
 .DS_Store
+yarn-debug.log*
+yarn-error.log*

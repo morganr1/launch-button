@@ -1,3 +1,3 @@
-import { LaunchButton } from './components';
+import { ApiButton } from './components';
 
-export { LaunchButton };
+export { ApiButton };

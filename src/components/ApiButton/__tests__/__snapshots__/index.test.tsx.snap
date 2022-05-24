@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ApiButton />  renders with default values 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hKMtZM bWwngD"
+  >
+    <button
+      aria-describedby="api-button-tooltip"
+      aria-relevant="text"
+      class="sc-bczRLJ kzjfbK"
+      id="api-button-container"
+      type="button"
+    >
+      <div
+        class="sc-jSMfEi ipkHuQ"
+      >
+        <p
+          class="sc-gKXOVf bHFdIC"
+        >
+          Launch Rocket
+        </p>
+      </div>
+    </button>
+  </div>
+</DocumentFragment>
+`;

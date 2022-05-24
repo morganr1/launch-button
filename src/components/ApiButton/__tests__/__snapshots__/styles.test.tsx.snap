@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApiButton styled components <Loader /> renders correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 20px;
+  margin-left: -4px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  border-color: #fff border-top:1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  -webkit-animation: gyhaPZ 1s linear infinite;
+  -webkit-animation: gyhaPZ 1s linear infinite;
+  animation: gyhaPZ 1s linear infinite;
+}
+
+<div>
+    <div
+      class="c0"
+      disabled=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ApiButton styled components <Tooltip /> renders correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  color: #ffffff;
+  width: 133px;
+  height: 30px;
+  margin-top: 7px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #000;
+  cursor: not-allowed;
+}
+
+.c0:after {
+  content: ' ';
+  position: absolute;
+  top: 52px;
+  cursor: not-allowed;
+  border-color: #000;
+  border-width: 16px;
+  border-top-width: 0px;
+  border-style: solid;
+  border-color: transparent transparent #000 transparent;
+}
+
+<div>
+    <div
+      class="c0"
+      disabled=""
+    >
+      Hi Tooltip
+    </div>
+  </div>
+</DocumentFragment>
+`;
