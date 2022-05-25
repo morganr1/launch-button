@@ -32,7 +32,7 @@ I've worked to ensure that the button can inform users which are leveraging a sc
 
 -   One small issue I came across with the screen reader. I wanted to inform the user about changes to the dynamic content within the tooltip (which describes the buttons functionality). For some reason, the screen reader repeats the tooltip text twice. I've tried a variety of tricks I usually leverage for dynamic content but alas... it just wouldn't play nice for me.
 
--   I also wanted to note that some of the colors provided as part of the design spec aren't WCAG compliant in terms of contrast between background and foreground. Working color has a contrast ratio of ~2.6 (working) and Error sits at ~4.0. The WCAG contrast minimum is 4.5.
+-   I also wanted to note that some of the colors provided as part of the design spec aren't WCAG compliant in terms of contrast between background and foreground. The **Working** color has a contrast ratio of ~2.6 and the **Error** color sits at ~4.0. The WCAG contrast minimum is 4.5.
     The closest accessible alternative text colors we could use to maintain the white background are;
 
     -   `#C75300` instead of `#FF7900`
@@ -52,11 +52,11 @@ Some notes around some potential different approaches I would take if I'd had a 
 
 ### Timeout / Abort logic
 
-I'd definitely extract this logic into either context or a custom hook. We could provide a trigger function to fire the request and provide back a set of props which consists of request status, abort callback, requestResponse, etc. This would provide for reusability in other situations where this logic is deemed needed and would clean up the API button significantly away from the complex branching of managing various statuses and requests.
+I'd definitely extract this logic into either context or a custom hook. We could provide a trigger function to fire the request and provide back a set of props which consists of request status, abort callback, requestResponse, etc. This would provide reusability in other situations where this logic is deemed needed and would clean up the API button significantly in terms of the complex branching logic of managing various statuses and requests.
 
 ### Bundling / Packaging
 
-After playing around with RollupJS I do think its quite nifty but I've found the documentation and general availability of packages and community help to be a bit lacking at the moment. I'd probably instead stick with good old reliable webpack 5 and bundle the component into a lib and publish it to artifactory.
+After playing around with RollupJS I do think its quite nifty, but I've found the documentation and general availability of packages and community help to be a bit lacking at the moment. I'd probably instead stick with good old reliable webpack 5 and bundle the component into a lib and publish it to artifactory.
 
 On the topic of publishing - I was going to publish this to npmjs but then I realised you probably don't want example components of your tech assessment out in the wild :D - So I held off doing that intentionally. Hopefully storybook and the built dist files is sufficient to illustrate the intent.
 
