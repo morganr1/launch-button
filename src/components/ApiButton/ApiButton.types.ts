@@ -70,7 +70,7 @@ export interface ApiButtonProps {
      * {Success} - Will return a response body in success cases
      * {Error} - Will return an error object in error case
      */
-    requestCallback: () => void;
+    requestCallback: (result: any) => void;
 }
 
 export interface ButtonProps {

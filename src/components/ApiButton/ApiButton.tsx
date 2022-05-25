@@ -1,5 +1,6 @@
-import React, { FC, useRef, useState } from 'react';
-import { ApiButtonProps, RequestStatus, HandleHover } from './ApiButton.types';
+import React, { FC, useEffect, useState } from 'react';
+import { ApiButtonProps, HandleHover } from './ApiButton.types';
+import { useFetch } from '../../hooks/useFetch';
 import {
     Button,
     Tooltip,
@@ -9,7 +10,6 @@ import {
     ButtonText,
     Loader,
 } from './ApiButton.styles';
-import { controlledFetchRequest } from './ApiButton.utils';
 
 const ApiButton: FC<ApiButtonProps> = ({
     disabled = false,
@@ -23,13 +23,19 @@ const ApiButton: FC<ApiButtonProps> = ({
     tooltipText,
     ...props
 }) => {
-    const [requestStatus, setRequestStatus] = useState<RequestStatus>({
-        fetching: isFetching,
-        error: hasError,
-    });
+    const {
+        error,
+        fetching,
+        requestResponse,
+        cancellable,
+        makeRequest,
+        abortRequest,
+    } = useFetch({ isFetching, hasError, url, requestTimeout });
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
-    const { fetching, error } = requestStatus;
-    const controllerRef = useRef<AbortController>(null);
+
+    useEffect(() => {
+        requestCallback({ requestResponse });
+    }, [requestResponse]);
 
     const handleHover: HandleHover = (show) => {
         setShowTooltip(show);
@@ -37,19 +43,13 @@ const ApiButton: FC<ApiButtonProps> = ({
 
     const handleClick = () => {
         if (fetching) {
-            setRequestStatus({ error: true, fetching: false });
+            abortRequest();
         }
-        if (controllerRef.current) {
-            controllerRef.current.abort();
+        if (cancellable) {
+            abortRequest();
         }
         if (error || !fetching) {
-            controlledFetchRequest({
-                controllerRef,
-                requestTimeout,
-                url,
-                requestCallback,
-                setRequestStatus,
-            });
+            makeRequest();
         }
     };
     const currentStatus = error ? 'error' : fetching ? 'fetching' : 'default';
