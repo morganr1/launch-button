@@ -54,6 +54,11 @@ Some notes around some potential different approaches I would take if I'd had a 
 
 I'd definitely extract this logic into either context or a custom hook. We could provide a trigger function to fire the request and provide back a set of props which consists of request status, abort callback, requestResponse, etc. This would provide reusability in other situations where this logic is deemed needed and would clean up the API button significantly in terms of the complex branching logic of managing various statuses and requests.
 
+> Spike branch implemented to demonstrate the above suggested refactor https://github.com/morganr1/launch-button/pull/new/spike/use-fetch-hook
+
+I had an hour and couldn't help myself... I honestly don't have any time to update tests and cleanup so I hope again, the intent is clear. It's just a lack of time on my part.
+
+
 ### Bundling / Packaging
 
 After playing around with RollupJS I do think its quite nifty, but I've found the documentation and general availability of packages and community help to be a bit lacking at the moment. I'd probably instead stick with good old reliable webpack 5 and bundle the component into a lib and publish it to artifactory.
