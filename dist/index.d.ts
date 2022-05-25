@@ -1,22 +1,19 @@
 import { FC } from 'react';
 
+interface StatusText {
+    default: string;
+    error: string;
+    fetching: string;
+}
 interface ApiButtonProps {
     /**
      * Text to display for each possible status
      */
-    buttonText: {
-        default: string;
-        error: string;
-        fetching: string;
-    };
+    buttonText: StatusText;
     /**
      * Text displayed within the button tooltip for each of the possible button statuses
      */
-    tooltipText: {
-        default: string;
-        error: string;
-        fetching: string;
-    };
+    tooltipText: StatusText;
     /**
      * url or endpoint which the button will make a GET request against
      */
@@ -47,7 +44,7 @@ interface ApiButtonProps {
      * {Success} - Will return a response body in success cases
      * {Error} - Will return an error object in error case
      */
-    callback: Function;
+    requestCallback: () => void;
 }
 
 declare const ApiButton: FC<ApiButtonProps>;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { getStatusStyles, Tooltip, Loader } from '../AppButton.styles';
-import { render, screen } from '@testing-library/react';
+import { Tooltip, Loader } from '../ApiButton.styles';
+import { render } from '@testing-library/react';
 import 'jest-styled-components';
 
 describe('ApiButton styled components', () => {

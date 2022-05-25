@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import ApiButton from './ApiButton';
-import { ApiButtonProps } from './types';
+import { ApiButtonProps } from './ApiButton.types';
 
 export default {
     title: 'Wayflyer/ApiButton',
@@ -28,7 +28,7 @@ Default.args = {
         error: 'Ignition error',
         fetching: 'Cancel launch',
     },
-    callback: (data: object) => console.log('Status callback!', data),
+    requestCallback: (data: object) => console.log('Status callback!', data),
     url: 'https://httpbin.org/delay/3',
 };
 
@@ -47,7 +47,7 @@ Timeout.args = {
         error: 'Ignition error',
         fetching: 'Cancel launch',
     },
-    callback: (data: any) => console.log('Status callback!', data),
+    requestCallback: (data: any) => console.log('Status callback!', data),
     url: 'https://httpbin.org/delay/5',
 };
 
@@ -68,7 +68,7 @@ Fetching.args = {
         error: 'Ignition error',
         fetching: 'Cancel launch',
     },
-    callback: (data: object) => console.log('Status callback!', data),
+    requestCallback: (data: object) => console.log('Status callback!', data),
     url: 'https://httpbin.org/delay/5',
 };
 
@@ -89,6 +89,6 @@ Error.args = {
         error: 'Ignition error',
         fetching: 'Cancel launch',
     },
-    callback: (data: object) => console.log('Status callback!', data),
+    requestCallback: (data: object) => console.log('Status callback!', data),
     url: 'https://httpbin.org/delay/5',
 };

@@ -1,14 +1,14 @@
-# Wayflyer launch button
+# Wayflyer launch button 🚀
 
-> A reusable launch button which is responsible for the ignition of the rocket fuel that will send Wayflyer's rocket ship to the stars.
+> A reusable launch button which is responsible for the ignition of the rocket fuel that will send Wayflyer's rocket ship to the stars! 😄
 
-## **Notes**
+## **Notes** 📘
 
-First off, I really enjoyed this tech task - well thought out!
+First off, I really enjoyed this tech task - well thought out! As I mention to Mike, I'm quite short on time (holidays tomorrow!) and could only devote a few hours over the past 2 nights as well as the guts of the morning today to get this tech assessment back to you guys.
 
 I haven't developed with typescript in nearly 2 years (current company doesn't use it widely), so I'm sadly quite rusty in this regard. If I was to come onboard with Wayflyer, I'd spend time beforehand getting back up to speed with TS. Hopefully I didn't make too much of a mess!
 
-## **Tech**
+## **Tech** 💾
 
 ### Rollup JS
 
@@ -16,7 +16,7 @@ Seeing as this was going to be a component wrapped in a component library I deci
 
 In retrospect - I probably should have played it safe and just used Webpack 5.
 
-## **Accessibility**
+## **Accessibility** 👂 👀
 
 Some notes around accessibility
 
@@ -40,39 +40,55 @@ I've worked to ensure that the button can inform users which are leveraging a sc
 
     I didn't implement the above color changes as the requirements stated to match the designs closely. This is something I would of normally raise with design to update our theme colours for example and perhaps do a general accessibility check on our palette. Then make the code change.
 
-### Testing
+## **Testing** ✅
 
-Code coverage almost at 100% - tiny little nullish check.
+I leveraged jest with testing library and some of the various addons you'd typically expect to see for unit testing. I added in coverage report collection and report generation and the test coverage current sits at ~99.4%.
 
-## **Commands**
+I put in Husky Hooks as a way to enforce the quality gate code coverage thresholds I have in place for the project locally. On pre-commit hook is in place to run unit tests for any commits to ensure no broken code / tests are pushed to remote.
+
+## **Alternate approaches** 🎢
+
+Some notes around some potential different approaches I would take if I'd had a bit more time to refactor.
+
+### Timeout / Abort logic
+
+I'd definitely extract this logic into either context or a custom hook. We could provide a trigger function to fire the request and provide back a set of props which consists of request status, abort callback, requestResponse, etc. This would provide for reusability in other situations where this logic is deemed needed and would clean up the API button significantly away from the complex branching of managing various statuses and requests.
+
+### Bundling / Packaging
+
+After playing around with RollupJS I do think its quite nifty but I've found the documentation and general availability of packages and community help to be a bit lacking at the moment. I'd probably instead stick with good old reliable webpack 5 and bundle the component into a lib and publish it to artifactory.
+
+On the topic of publishing - I was going to publish this to npmjs but then I realised you probably don't want example components of your tech assessment out in the wild :D - So I held off doing that intentionally. Hopefully storybook and the built dist files is sufficient to illustrate the intent.
+
+## **Commands** ✏️
 
 ---
 
-### Install
+#### Install
 
 ```sh
 yarn install
 ```
 
-### Run tests
+#### Run tests
 
 ```sh
 yarn test
 ```
 
-### Format (prettier)
+#### Format (prettier)
 
 ```sh
 yarn prettier
 ```
 
-### Build
+#### Build
 
 ```sh
 yarn build
 ```
 
-### Storybook
+#### Storybook
 
 ```sh
 yarn storybook
@@ -84,6 +100,6 @@ yarn build-storybook
 
 ### Author
 
-👤 **Reggie Morgan**
+**Reggie Morgan** 🐒
 
 -   LinkedIn: [@regomorgan](https://linkedin.com/in/regomorgan)

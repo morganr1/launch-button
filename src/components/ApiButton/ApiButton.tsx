@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from 'react';
-import { ApiButtonProps, RequestStatus, HandleHover } from './AppButton.types';
+import { ApiButtonProps, RequestStatus, HandleHover } from './ApiButton.types';
 import {
     Button,
     Tooltip,
@@ -8,8 +8,8 @@ import {
     ButtonContent,
     ButtonText,
     Loader,
-} from './AppButton.styles';
-import { controlledFetchRequest } from './AppButton.utils';
+} from './ApiButton.styles';
+import { controlledFetchRequest } from './ApiButton.utils';
 
 const ApiButton: FC<ApiButtonProps> = ({
     disabled = false,
@@ -47,7 +47,7 @@ const ApiButton: FC<ApiButtonProps> = ({
                 controllerRef,
                 requestTimeout,
                 url,
-                callback: requestCallback,
+                requestCallback,
                 setRequestStatus,
             });
         }

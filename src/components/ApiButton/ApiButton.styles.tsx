@@ -3,7 +3,7 @@ import {
     ButtonProps,
     ButtonWrapperProps,
     StatusProps,
-} from './AppButton.types';
+} from './ApiButton.types';
 
 /* Util Functions */
 export const getStatusStyles = (status: string) =>

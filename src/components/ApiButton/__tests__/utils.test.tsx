@@ -1,4 +1,4 @@
-import { controlledFetchRequest } from '../AppButton.utils';
+import { controlledFetchRequest } from '../ApiButton.utils';
 
 describe('ApiButton Utils', () => {
     afterEach(() => {
@@ -18,13 +18,13 @@ describe('ApiButton Utils', () => {
                 current: null,
             },
             setRequestStatus: jest.fn(),
-            callback: jest.fn(),
+            requestCallback: jest.fn(),
             requestTimeout: 1000,
             url: 'https://httpbin.org/delay/3',
         };
         await controlledFetchRequest(mockRequestParams);
         expect(mockRequestParams.setRequestStatus).toHaveBeenCalledTimes(2);
-        expect(mockRequestParams.callback).toHaveBeenCalledTimes(1);
+        expect(mockRequestParams.requestCallback).toHaveBeenCalledTimes(1);
     });
 
     it('makeControlledRequest failure', async () => {
@@ -42,13 +42,13 @@ describe('ApiButton Utils', () => {
                 current: null,
             },
             setRequestStatus: jest.fn(),
-            callback: jest.fn(),
+            requestCallback: jest.fn(),
             requestTimeout: 1000,
             url: 'https://httpbin.org/delay/3',
         };
         await controlledFetchRequest(mockRequestParams);
         expect(mockRequestParams.setRequestStatus).toHaveBeenCalledTimes(2);
-        expect(mockRequestParams.callback).toHaveBeenCalledTimes(1);
+        expect(mockRequestParams.requestCallback).toHaveBeenCalledTimes(1);
     });
 
     it('makeControlledRequest timeout', async () => {
@@ -69,7 +69,7 @@ describe('ApiButton Utils', () => {
                 current: null,
             },
             setRequestStatus: jest.fn(),
-            callback: jest.fn(),
+            requestCallback: jest.fn(),
             requestTimeout: 2000,
             url: 'https://httpbin.org/delay/3',
         };

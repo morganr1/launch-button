@@ -21,7 +21,7 @@ export interface ControlledRequestParams {
     };
     url: string;
     setRequestStatus: (requestStatus: RequestStatus) => void;
-    callback: Function;
+    requestCallback: (result: object) => void;
     requestTimeout: number | undefined;
 }
 
@@ -70,7 +70,7 @@ export interface ApiButtonProps {
      * {Success} - Will return a response body in success cases
      * {Error} - Will return an error object in error case
      */
-    requestCallback: Function;
+    requestCallback: () => void;
 }
 
 export interface ButtonProps {
@@ -83,8 +83,8 @@ export interface ButtonProps {
 }
 
 export interface ButtonWrapperProps {
-    onMouseOver: Function;
-    onMouseOut: Function;
+    onMouseOver: () => void;
+    onMouseOut: () => void;
 }
 
 export interface StatusProps {
