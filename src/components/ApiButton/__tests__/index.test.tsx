@@ -24,7 +24,7 @@ describe('<ApiButton /> ', () => {
             error: 'Ignition error',
             fetching: 'Cancel launch',
         },
-        callback: clickCallbackMock,
+        requestCallback: clickCallbackMock,
         url: 'https://httpbin.org/delay/3',
     };
 

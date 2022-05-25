@@ -24,7 +24,7 @@ Some notes around accessibility
 
 As part of the storybook implementation I've included an AXE(A11y) plugin which automatically scans components / stories to raise any violations, passes and incompleted a11y items.
 
-When on a story, refresh the page and you will find the accessibility tab in the lower bar updated with the results of the A11Y scan done by the plugin.
+When on a story, refresh the page and you will find the accessibility tab in the lower bar updated with the results of the A11y scan done by the plugin.
 
 ### General A11y
 
@@ -42,7 +42,7 @@ I've worked to ensure that the button can inform users which are leveraging a sc
 
 ### Testing
 
-Code almost to 100% - tiny little nullish check that I didn't want to duplicate a load of tests for.
+Code coverage almost at 100% - tiny little nullish check.
 
 ## **Commands**
 

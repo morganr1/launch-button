@@ -1,6 +1,6 @@
-import { ControlledRequestParams } from './AppButton.types';
+import { ControlledRequestParams, ControlledRequest } from './AppButton.types';
 
-export const controlledFetchRequest = async (
+export const controlledFetchRequest: ControlledRequest = async (
     controlRequestParams: ControlledRequestParams
 ) => {
     const { controllerRef, setRequestStatus, callback, requestTimeout, url } =
@@ -12,8 +12,6 @@ export const controlledFetchRequest = async (
         setRequestStatus({ fetching: true, error: false });
         requestTimeout &&
             setTimeout(() => {
-                // If timeout provided, we should cancel the in flight request
-                // if its duration exceeds the max duration provided via props
                 controllerRef.current?.abort();
             }, requestTimeout);
         const response = await fetch(url, {

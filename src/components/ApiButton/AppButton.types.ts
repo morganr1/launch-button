@@ -3,43 +3,43 @@
  */
 
 export type HandleHover = (show: boolean) => void;
+export type Status = 'error' | 'fetching' | 'default';
+export type ControlledRequest = (params: ControlledRequestParams) => void;
 
 /**
  * Interfaces
  */
-
-export interface ControlledRequestParams {
-    controllerRef: {
-        current: AbortController | null | undefined;
-    };
-    url: string;
-    setRequestStatus: Function;
-    callback: Function;
-    requestTimeout: number | undefined;
-}
 
 export interface RequestStatus {
     fetching: boolean;
     error: boolean;
 }
 
+export interface ControlledRequestParams {
+    controllerRef: {
+        current: AbortController | null | undefined;
+    };
+    url: string;
+    setRequestStatus: (requestStatus: RequestStatus) => void;
+    callback: Function;
+    requestTimeout: number | undefined;
+}
+
+interface StatusText {
+    default: string;
+    error: string;
+    fetching: string;
+}
+
 export interface ApiButtonProps {
     /**
      * Text to display for each possible status
      */
-    buttonText: {
-        default: string;
-        error: string;
-        fetching: string;
-    };
+    buttonText: StatusText;
     /**
      * Text displayed within the button tooltip for each of the possible button statuses
      */
-    tooltipText: {
-        default: string;
-        error: string;
-        fetching: string;
-    };
+    tooltipText: StatusText;
     /**
      * url or endpoint which the button will make a GET request against
      */
@@ -70,16 +70,16 @@ export interface ApiButtonProps {
      * {Success} - Will return a response body in success cases
      * {Error} - Will return an error object in error case
      */
-    callback: Function;
+    requestCallback: Function;
 }
 
 export interface ButtonProps {
     id: string;
     type: string;
     disabled?: boolean;
-    status: 'error' | 'fetching' | 'default';
+    status: Status;
     ariaLabel?: string;
-    onClick: Function;
+    onClick: () => void;
 }
 
 export interface ButtonWrapperProps {

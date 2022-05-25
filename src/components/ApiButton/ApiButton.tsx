@@ -18,19 +18,18 @@ const ApiButton: FC<ApiButtonProps> = ({
     requestTimeout,
     isFetching = false,
     hasError = false,
-    callback,
+    requestCallback,
     buttonText,
     tooltipText,
     ...props
 }) => {
-    // It should be possible to put the button into each state via props (initial)
     const [requestStatus, setRequestStatus] = useState<RequestStatus>({
         fetching: isFetching,
         error: hasError,
     });
     const [showTooltip, setShowTooltip] = useState<boolean>(false);
     const { fetching, error } = requestStatus;
-    const controllerRef = useRef<AbortController | null>();
+    const controllerRef = useRef<AbortController>(null);
 
     const handleHover: HandleHover = (show) => {
         setShowTooltip(show);
@@ -38,11 +37,9 @@ const ApiButton: FC<ApiButtonProps> = ({
 
     const handleClick = () => {
         if (fetching) {
-            // if prop `isFetching` is initially passed as `true` - change status to error
             setRequestStatus({ error: true, fetching: false });
         }
         if (controllerRef.current) {
-            // A second click of the button should abort a request that is in-flight and show the error state
             controllerRef.current.abort();
         }
         if (error || !fetching) {
@@ -50,7 +47,7 @@ const ApiButton: FC<ApiButtonProps> = ({
                 controllerRef,
                 requestTimeout,
                 url,
-                callback,
+                callback: requestCallback,
                 setRequestStatus,
             });
         }

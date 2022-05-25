@@ -17,11 +17,6 @@
             "prettier --config .prettierrc --write"
         ]
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged && test"
-        }
-    },
     "dependencies": {
         "react": "^18.1.0",
         "react-dom": "^18.1.0"
@@ -51,7 +46,7 @@
         "@types/react": "^18.0.9",
         "@types/styled-components": "^5.1.25",
         "babel-loader": "^8.2.5",
-        "husky": "^8.0.1",
+        "husky": "^4.3.8",
         "jest": "^28.1.0",
         "jest-environment-jsdom": "^28.1.0",
         "jest-styled-components": "^7.0.8",
@@ -65,6 +60,11 @@
         "ts-jest": "^28.0.3",
         "tslib": "^2.4.0",
         "typescript": "^4.6.4"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn test"
+        }
     },
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
